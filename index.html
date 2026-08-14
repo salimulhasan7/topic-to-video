@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TopicToVideo — টপিক থেকে সিনেমাটিক ভিডিও</title>
+  <meta name="description" content="একটি টপিক লিখুন, সঙ্গে সঙ্গে সিনেমাটিক বাংলা ভিডিও তৈরি করুন — AI-style আর্টওয়ার্ক, ন্যাচারাল ভয়েসওভার, ব্যাকগ্রাউন্ড মিউজিক। ১০০% ব্রাউজারে, GitHub Pages-এ হোস্টযোগ্য।" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">
+        <span class="brand-badge">▶</span>
+        <span class="brand-name">Topic<span class="accent">To</span>Video</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#maker">মেকার</a>
+        <a href="#how">কীভাবে কাজ করে</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-ghost" href="#maker">ভিডিও বানান</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-inner">
+        <p class="hero-eyebrow">ব্রাউজারেই · ফ্রি · GitHub Pages হোস্টিং</p>
+        <h1>একটা টপিক লিখুন।<br />সিনেমাটিক বাংলা <span class="accent">ভিডিও</span> তৈরি হোক।</h1>
+        <p class="hero-sub">
+          AI-স্টাইল আর্টওয়ার্ক, ন্যাচারাল বাংলা ভয়েসওভার, সিনেমাটিক কালার গ্রেডিং আর
+          ব্যাকগ্রাউন্ড মিউজিক — সব এক জায়গায়, সম্পূর্ণ আপনার ব্রাউজারে। কোনো সার্ভার, কোনো API কী লাগে না।
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#maker">ফ্রি ভিডিও বানান</a>
+          <a class="btn btn-ghost" href="#how">কীভাবে কাজ করে</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAKER -->
+    <section class="maker" id="maker">
+      <div class="maker-grid">
+        <div class="panel controls">
+          <h2>ভিডিও মেকার</h2>
+          <label class="field">
+            <span class="field-label">আপনার টপিক লিখুন</span>
+            <input id="topic" type="text" maxlength="80" placeholder="যেমন: সোশ্যাল মিডিয়া আসক্তি" />
+          </label>
+
+          <label class="field">
+            <span class="field-label">নিজের পয়েন্ট (ঐচ্ছিক — প্রতি লাইনে একটা)</span>
+            <textarea id="points" rows="3" maxlength="600" placeholder="পয়েন্ট না দিলে টপিক থেকে ৪টা মূল বিষয় অটো তৈরি হবে।&#10;চাইলে নিজের পয়েন্ট লিখুন, যেমন:&#10;ঘুম ও উৎপাদনশীলতায় প্রভাব&#10;ফোকাস ও একাগ্রতা কমায়&#10;সমাধান: স্ক্রিন-টাইম নিয়ন্ত্রণ"></textarea>
+          </label>
+
+          <label class="field">
+            <span class="field-label">ভয়েস</span>
+            <select id="voiceSelect"></select>
+          </label>
+
+          <div class="field">
+            <span class="field-label">কালার থিম</span>
+            <div class="themes" id="themeRow">
+              <button class="theme-btn" data-theme="tealorange" title="Teal & Orange">
+                <span class="swatch sw-a"></span>Teal-Orange
+              </button>
+              <button class="theme-btn" data-theme="sunset" title="Sunset">
+                <span class="swatch sw-b"></span>Sunset
+              </button>
+              <button class="theme-btn" data-theme="midnight" title="Midnight Blue">
+                <span class="swatch sw-c"></span>Midnight
+              </button>
+              <button class="theme-btn" data-theme="forest" title="Forest">
+                <span class="swatch sw-d"></span>Forest
+              </button>
+            </div>
+          </div>
+
+          <label class="check">
+            <input id="withVoice" type="checkbox" checked />
+            <span>ভিডিওতে ভয়েসওভার অন্তর্ভুক্ত করুন</span>
+          </label>
+
+          <details class="settings">
+            <summary>⚙ উন্নত সেটিংস (ঐচ্ছিক — AI স্ক্রিপ্ট ও রিয়েল ছবি)</summary>
+            <div class="settings-body">
+              <p class="settings-note">
+                API কীগুলো শুধু আপনার ব্রাউজারে সংরক্ষিত হয় (localStorage) — কোথাও পাঠানো হয় না।
+                রিকোয়েস্ট সরাসরি আপনার ব্রাউজার থেকে ওই API-তে যায়। কোনো কী না দিলে অ্যাপ
+                বিল্ট-ইন টেমপ্লেট আর জেনারেটিভ আর্টওয়ার্ক দিয়েই কাজ করে।
+              </p>
+
+              <div class="set-block">
+                <label class="check">
+                  <input id="llmOn" type="checkbox" />
+                  <span>AI স্ক্রিপ্ট (LLM) ব্যবহার করুন — টপিকের আসল তথ্যভিত্তিক স্ক্রিপ্ট</span>
+                </label>
+                <label class="field">
+                  <span class="field-label">প্রোভাইডার</span>
+                  <select id="llmProvider">
+                    <option value="openai">OpenAI</option>
+                    <option value="deepseek">DeepSeek</option>
+                    <option value="groq">Groq</option>
+                    <option value="custom">কাস্টম (OpenAI-কমপ্যাটিবল)</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span class="field-label">Base URL</span>
+                  <input id="llmBase" type="text" placeholder="https://api.openai.com/v1" />
+                </label>
+                <label class="field">
+                  <span class="field-label">মডেল</span>
+                  <input id="llmModel" type="text" placeholder="gpt-4o-mini" />
+                </label>
+                <label class="field">
+                  <span class="field-label">API কী</span>
+                  <input id="llmKey" type="password" placeholder="sk-…" autocomplete="off" />
+                </label>
+                <button id="llmTestBtn" class="btn btn-small">টেস্ট সংযোগ</button>
+                <span id="llmTestResult" class="set-test-result"></span>
+              </div>
+
+              <div class="set-block">
+                <label class="check">
+                  <input id="imgOn" type="checkbox" />
+                  <span>রিয়েল ছবি ব্যবহার করুন (স্টক ফটো) — আর্টওয়ার্কের বদলে</span>
+                </label>
+                <label class="field">
+                  <span class="field-label">ইমেজ প্রোভাইডার</span>
+                  <select id="imgProvider">
+                    <option value="pixabay">Pixabay</option>
+                    <option value="pexels">Pexels</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span class="field-label">API কী</span>
+                  <input id="imgKey" type="password" placeholder="ফ্রি কী নিন pixabay.com / pexels.com" autocomplete="off" />
+                </label>
+                <p class="settings-note">Pixabay: pixabay.com/api — Pexels: pexels.com/api — দুটোতেই ফ্রি কী পাওয়া যায়।</p>
+              </div>
+            </div>
+          </details>
+
+          <div class="btn-row">
+            <button id="generateBtn" class="btn btn-primary btn-block">ভিডিও তৈরি করুন</button>
+          </div>
+          <p id="status" class="status"></p>
+
+          <div class="preview-box">
+            <canvas id="stage" width="1280" height="720"></canvas>
+            <div class="preview-bar">
+              <button id="playBtn" class="btn btn-small" disabled>▶ প্রিভিউ</button>
+              <button id="recordBtn" class="btn btn-small btn-warn" disabled>● রেকর্ড ও ডাউনলোড</button>
+              <button id="stopBtn" class="btn btn-small" disabled>■ স্টপ</button>
+              <span id="time" class="time">00:00</span>
+            </div>
+            <p class="hint" id="hint"></p>
+          </div>
+        </div>
+
+        <div class="panel plan">
+          <h2>স্ক্রিপ্ট ও সিন পরিকল্পনা</h2>
+          <div class="plan-tools">
+            <button id="saveScriptBtn" class="btn btn-small" disabled>✔ স্ক্রিপ্ট সংরক্ষণ</button>
+            <span class="hint2">প্রতিটা সিনে ✎ চাপ দিয়ে বক্তব্য সম্পাদনা করতে পারেন</span>
+          </div>
+          <div id="scenePlan" class="scene-plan">
+            <p class="empty">উপরে টপিক লিখে "ভিডিও তৈরি করুন" চাপুন — স্বয়ংক্রিয় স্ক্রিপ্ট আর সিন এখানে দেখাবে।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW -->
+    <section class="how" id="how">
+      <h2>কীভাবে কাজ করে</h2>
+      <div class="steps">
+      <div class="step">
+        <div class="step-num">১</div>
+        <h3>টপিক লিখুন</h3>
+        <p>যে বিষয়ে ভিডিও চান, সেটা এক লাইনে লিখুন — বাংলা বা ইংরেজি দুটোই চলবে। চাইলে নিজের পয়েন্টও যোগ করতে পারেন।</p>
+      </div>
+        <div class="step">
+          <div class="step-num">২</div>
+          <h3>স্ক্রিপ্ট ও আর্টওয়ার্ক</h3>
+          <p>টপিক থেকে বাছাই করা মূল বিষয় (কেন গুরুত্বপূর্ণ, প্রভাব, উপকারিতা, চ্যালেঞ্জ, করণীয়…) নিয়ে পয়েন্ট-ভিত্তিক ইনফরমেটিভ স্ক্রিপ্ট আর প্রতিটা সিনের জন্য জেনারেটিভ সিনেমাটিক আর্টওয়ার্ক তৈরি হয়।</p>
+        </div>
+        <div class="step">
+          <div class="step-num">৩</div>
+          <h3>ভয়েস ও মিউজিক</h3>
+          <p>ব্রাউজারের ন্যাচারাল বাংলা ভয়েসে ভয়েসওভার আর ওয়েব-অডিওতে সিনথেসাইজড সিনেমাটিক BGM।</p>
+        </div>
+        <div class="step">
+          <div class="step-num">৪</div>
+          <h3>রেকর্ড ও ডাউনলোড</h3>
+          <p>Ken Burns মোশন, ক্রসফেড ট্রানজিশন আর কালার গ্রেডিং সহ ভিডিও WebM হিসেবে ডাউনলোড করুন।</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <h2>এক নজরে</h2>
+      <div class="feature-grid">
+        <div class="feature"><h3>১০০% ক্লায়েন্ট-সাইড</h3><p>আপনার ব্রাউজার ছাড়া কিছু লাগে না — ডেটা কোথাও যায় না।</p></div>
+        <div class="feature"><h3>ন্যাচারাল বাংলা ভয়েস</h3><p>Web Speech API দিয়ে বাংলা ভয়েসওভার (যেখানে সাপোর্টেড)।</p></div>
+        <div class="feature"><h3>সিনেমাটিক লুক</h3><p>Teal-Orange গ্রেডিং, ফিল্ম গ্রেইন, ভিনিয়েট, Ken Burns মোশন।</p></div>
+        <div class="feature"><h3>GitHub Pages রেডি</h3><p>স্ট্যাটিক ফাইল — কোনো সার্ভার ছাড়াই যেকোনো হোস্টিংয়ে যায়।</p></div>
+        <div class="feature"><h3>আপনার নিজের API</h3><p>চাইলে নিজের LLM API (OpenAI-কমপ্যাটিবল) দিয়ে আসল তথ্যভিত্তিক স্ক্রিপ্ট আর Pixabay/Pexels দিয়ে রিয়েল ছবি — কী শুধু আপনার ব্রাউজারে থাকে।</p></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <h2>সাধারণ প্রশ্ন</h2>
+      <details><summary>ভয়েস কীভাবে কাজ করে?</summary><p>ব্রাউজারের বিল্ট-ইন টেক্সট-টু-স্পিচ ইঞ্জিন ব্যবহার হয়। উইন্ডোজ/ম্যাক-এ সেরা বাংলা ভয়েস (যেমন Microsoft Nabanita) পাবেন; লিনাক্সে মান ভেরিয়েন্টভেদে ভিন্ন হতে পারে। রেকর্ডের সময় ট্যাব অডিও ক্যাপচার করার অনুমতি দিলে ভয়েস ভিডিওতে যুক্ত হয়।</p></details>
+      <details><summary>আউটপুট ফাইল কোন ফরম্যাটে?</summary><p>WebM (VP9/VP8 + Opus) — GitHub, YouTube, Google Photos সব চলে। ব্রাউজারে সরাসরি এমবেডও হয়।</p></details>
+      <details><summary>GitHub এ কীভাবে হোস্ট করব?</summary><p>এই ফোল্ডারটা GitHub রিপোজিটরিতে পুশ করুন, তারপর Settings → Pages → "Deploy from a branch" → main/root সিলেক্ট করুন। এক মিনিটেই লাইভ। বিস্তারিত README-তে আছে।</p></details>
+      <details><summary>স্ক্রিপ্ট কীভাবে তৈরি হয়?</summary><p>টপিক থেকে ডিটারমিনিস্টিকভাবে ৪টা অ্যাঙ্গেল বাছাই হয় (কেন গুরুত্বপূর্ণ, প্রভাব, উপকারিতা, চ্যালেঞ্জ, করণীয়, ভবিষ্যৎ, বাস্তবতা) — প্রতিটা থেকে একটা করে "মূল বিষয়" সিন তৈরি হয়। একই টপিকে সবসময় একই স্ক্রিপ্ট পাবেন। চাইলে "নিজের পয়েন্ট" বক্সে আপনার গুরুত্বপূর্ণ পয়েন্টগুলো লিখলে (প্রতি লাইনে একটা) স্ক্রিপ্ট সেগুলো দিয়েই তৈরি হবে।</p></details>
+      <details><summary>AI স্ক্রিপ্ট (LLM) কীভাবে চালু করব?</summary><p>"উন্নত সেটিংস" খুলুন → AI স্ক্রিপ্ট চালু করুন → প্রোভাইডার বেছে নিন (OpenAI/DeepSeek/Groq/কাস্টম) → আপনার API কী দিন। স্ক্রিপ্ট তখন টেমপ্লেটের বদলে আসল AI থেকে টপিকের তথ্যভিত্তিক পয়েন্টসহ তৈরি হবে। "টেস্ট সংযোগ" বাটনে চেক করুন। কী শুধু আপনার ব্রাউজারে (localStorage) থাকে।</p></details>
+      <details><summary>রিয়েল ছবি কীভাবে যুক্ত করব?</summary><p>"উন্নত সেটিংস" → রিয়েল ছবি চালু করুন → Pixabay বা Pexels বেছে নিন → ফ্রি API কী দিন। তখন প্রতিটা সিনের ব্যাকগ্রাউন্ডে টপিক অনুযায়ী রিয়েল স্টক ফটো আসবে (কেন বার্নস মোশন আর সিনেমাটিক গ্রেডিং সহ)। কী না দিলে জেনারেটিভ আর্টওয়ার্কই চলবে।</p></details>
+      <details><summary>LLM-এর স্ক্রিপ্ট ভালো না হলে?</summary><p>প্রতিটা সিনে ✎ চাপ দিয়ে বক্তব্য সম্পাদনা করুন, তারপর "✔ স্ক্রিপ্ট সংরক্ষণ" চাপুন — সময়সূচি নিজে থেকেই হালনাগাদ হবে। আবার "ভিডিও তৈরি করুন" চাপলে নতুন করে স্ক্রিপ্ট আসবে।</p></details>
+      <details><summary>ভিডিও কত লম্বা হয়?</summary><p>টপিক অনুযায়ী সাধারণত ৪৫-৭০ সেকেন্ড — ৭টা সিন (টাইটেল + ৪ মূল বিষয় + সারমর্ম + আউটরো), ৩০ fps, 1280×720। নিজের পয়েন্ট দিলে পয়েন্ট সংখ্যা অনুযায়ী লম্বা হয়।</p></details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>TopicToVideo — আপনার ব্রাউজারে সিনেমাটিক বাংলা ভিডিও জেনারেটর। সব ডেটা লোকালি প্রসেস হয়।</p>
+  </footer>
+
+  <script src="js/scriptgen.js"></script>
+  <script src="js/llm.js"></script>
+  <script src="js/images.js"></script>
+  <script src="js/artwork.js"></script>
+  <script src="js/bgm.js"></script>
+  <script src="js/composer.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
